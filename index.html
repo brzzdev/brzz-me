@@ -17,9 +17,15 @@
             color: #fafafa;
         }
         h1 { font-size: 2rem; font-weight: 400; }
+        a.source { position: fixed; bottom: 1.5rem; right: 1.5rem; opacity: 0.3; transition: opacity 0.2s; }
+        a.source:hover { opacity: 0.8; }
+        a.source svg { width: 1.5rem; height: 1.5rem; }
     </style>
 </head>
 <body>
     <h1>Hello there</h1>
+    <a class="source" href="https://git.brzz.dev/brzz/brzz-me" title="Source on Forgejo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212"><style>circle,path{fill:none;stroke:#fafafa;stroke-width:15}path{stroke-width:25}</style><g transform="translate(6 6)"><path d="M58 168V70a50 50 0 0 1 50-50h20"/><path d="M58 168v-30a50 50 0 0 1 50-50h20"/><circle cx="142" cy="20" r="18"/><circle cx="142" cy="88" r="18"/><circle cx="58" cy="180" r="18"/></g></svg>
+    </a>
 </body>
 </html>
