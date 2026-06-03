@@ -1,0 +1,19 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container:
+      image: node:22-bookworm
+      volumes:
+        - /opt/stack/sites:/deploy   # Caddy's site dir (allowed via runner valid_volumes)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish to Caddy site dir
+        run: |
+          apt-get update -qq && apt-get install -y -qq rsync
+          rsync -a --delete --delete-excluded --exclude='.git' --exclude='.forgejo' ./ /deploy/brzz-me/
+          echo "Published $(find /deploy/brzz-me -type f | wc -l) files to brzz-me"
